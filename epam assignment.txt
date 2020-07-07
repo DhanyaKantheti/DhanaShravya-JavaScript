@@ -1,0 +1,88 @@
+<html>
+<head>
+<script>
+function upper()
+{
+var text=document.getElementById("txt").value;
+var t=text.toUpperCase();
+document.getElementById("txt").value=t;
+}
+function upperln(){
+var text=document.getElementById("ln").value;
+var t=text.toUpperCase();
+document.getElementById("ln").value=t;
+}
+function valage()
+{
+var age=document.getElementById("a").value;
+if(age<18){
+alert("You are not eligible to watch this movie");
+}
+}
+function valmail()
+{
+var email=document.getElementById("em").value;
+ if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(myForm.mail.value))
+{
+return true;
+}
+else
+alert("Enter a valid email address");
+if (!em.match(/\S/)) {
+alert("This field should not be left blank");
+}
+}
+function valphn(){
+var phn=document.getElementById("ph").value;
+if (!phn.match(/\S/)) {
+alert("This field should not be left blank");
+}
+if(phn.length<10||phn.length>10)
+alert("Please enter a valid phone number");
+}
+function valsubmit(){
+document.getElementById("sub").addEventListener("click",valcheck());
+}
+function valcheck(){
+if(!this.myForm.checkbox.checked){
+alert('You must agree to the terms first.');
+return false;
+}
+}
+</script>
+</head>
+<body>
+<style>
+body{
+background-color:antiquewhite;
+}
+input[type=text]
+{
+background-color:antiquewhite;
+border:none;
+border-bottom:2px solid black;
+}
+</style>
+<h2 align="center">ABC BOOKING APP</h2>
+<h3 align="center">Fill the form to confirm your booking!</h3>
+<form id="myForm">
+First Name<br><input type="text" name="fn" id="txt"  onchange="upper()"><br><br>
+Last Name<br><input type="text" name="ln" id="ln"  onchange="upperln()"><br><br>
+Age<br><input type="text" name="age" id="a"  onchange="valage()"><br><br>
+Phone Number*<br><input type="text" name="pn" id="ph" value=" " onchange="valphn()"><br><br>
+Email*<br><input type="text" name="mail" id="em" value=" " onchange="valmail()"><br><br>
+Choose number of tickets<br>
+<select id="tickets">
+<option value="1">1</option>
+<option value="2">2</option>
+<option value="3">3</option>
+<option value="4">4</option>
+<option value="5">5</option>
+</select>
+<br><br>
+<input type="checkbox" id="checkbox" value=" ">*I accept to all terms and conditions<br><br>
+<input type="submit" id="sub" name="form_submit" value="book tickets" onclick="valsubmit()" />
+</form>
+
+</body>
+</html>
